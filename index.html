@@ -336,6 +336,11 @@
         <div class="metric-value" id="metricMeals">—</div>
         <div class="metric-sub">meal plan entries</div>
       </div>
+      <div class="metric-card">
+        <div class="metric-label">Guest Trials</div>
+        <div class="metric-value" id="metricTrials">—</div>
+        <div class="metric-sub">try as guest sessions</div>
+      </div>
     </div>
 
     <div class="section-title">Recent Logins</div>
@@ -380,6 +385,7 @@
   let allLogins = [];
   let allLists = [];
   let allMeals = [];
+  let allTrials = [];
 
   window.checkPin = function() {
     const val = document.getElementById('pinInput').value;
@@ -417,6 +423,11 @@
 
       // Load meal plans
       const mealsSnap = await getDocs(collection(db, 'mealPlans'));
+
+      // Load trial events
+      const trialsSnap = await getDocs(collection(db, 'trialEvents'));
+      allTrials = [];
+      trialsSnap.forEach(d => allTrials.push({ id: d.id, ...d.data() }));
       allMeals = [];
       mealsSnap.forEach(d => allMeals.push({ id: d.id, ...d.data() }));
 
@@ -497,12 +508,18 @@
       return d && d >= start;
     });
 
+    const periodTrials = allTrials.filter(t => {
+      const d = toDate(t.timestamp);
+      return d && d >= start;
+    });
+
     document.getElementById('metricUsers').textContent = periodUserIds.size;
     document.getElementById('metricNewUsers').textContent = newUsers;
     document.getElementById('metricLogins').textContent = periodLogins.length;
     document.getElementById('metricLists').textContent = periodLists.length;
     document.getElementById('metricCompleted').textContent = completedLists.length;
     document.getElementById('metricMeals').textContent = periodMeals.length;
+    document.getElementById('metricTrials').textContent = periodTrials.length;
   }
 
   function renderLoginsTable() {
