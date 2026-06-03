@@ -237,6 +237,21 @@
         <div class="metric-value" id="metricTrials">—</div>
         <div class="metric-sub">try as guest sessions</div>
       </div>
+      <div class="metric-card" onclick="openModal('cta_tutorial')">
+        <div class="metric-label">See How It Works</div>
+        <div class="metric-value" id="metricCtaTutorial">—</div>
+        <div class="metric-sub">chose tutorial</div>
+      </div>
+      <div class="metric-card" onclick="openModal('cta_create')">
+        <div class="metric-label">Create First List</div>
+        <div class="metric-value" id="metricCtaCreate">—</div>
+        <div class="metric-sub">went straight to list</div>
+      </div>
+      <div class="metric-card" onclick="openModal('cta_dismiss')">
+        <div class="metric-label">Dismissed</div>
+        <div class="metric-value" id="metricCtaDismiss">—</div>
+        <div class="metric-sub">closed welcome modal</div>
+      </div>
     </div>
 
     <div class="section-title">Recent Logins</div>
@@ -280,7 +295,7 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  let allLogins = [], allLists = [], allMeals = [], allTrials = [];
+  let allLogins = [], allLists = [], allMeals = [], allTrials = [], allCtas = [];
   let currentStart = null, currentEnd = null;
 
   // ── PIN ──
@@ -342,8 +357,11 @@
       const mealsSnap = await getDocs(collection(db,'mealPlans'));
       allMeals = []; mealsSnap.forEach(d => allMeals.push({id:d.id,...d.data()}));
 
-      const trialsSnap = await getDocs(query(collection(db,'trialEvents'), orderBy('timestamp','desc')));
+     const trialsSnap = await getDocs(query(collection(db,'trialEvents'), orderBy('timestamp','desc')));
       allTrials = []; trialsSnap.forEach(d => allTrials.push({id:d.id,...d.data()}));
+
+      const ctaSnap = await getDocs(query(collection(db,'welcomeCtaEvents'), orderBy('timestamp','desc')));
+      allCtas = []; ctaSnap.forEach(d => allCtas.push({id:d.id,...d.data()}));
 
       document.getElementById('lastUpdated').textContent = 'Updated ' + new Date().toLocaleTimeString();
       renderMetrics();
@@ -437,6 +455,14 @@
     document.getElementById('metricCompleted').textContent = completedLists.length;
     document.getElementById('metricMeals').textContent = periodMeals.length;
     document.getElementById('metricTrials').textContent = periodTrials.length;
+
+      const periodCtas = allCtas.filter(c => inRange(toDate(c.timestamp)));
+      periodData.cta_tutorial = periodCtas.filter(c => c.choice === 'tutorial').map(c => ({ name: fmtDateTime(toDate(c.timestamp)), email: c.isGuest ? 'guest' : 'signed in', meta: 'tutorial' }));
+      periodData.cta_create = periodCtas.filter(c => c.choice === 'create_list').map(c => ({ name: fmtDateTime(toDate(c.timestamp)), email: c.isGuest ? 'guest' : 'signed in', meta: 'create list' }));
+      periodData.cta_dismiss = periodCtas.filter(c => c.choice === 'dismissed').map(c => ({ name: fmtDateTime(toDate(c.timestamp)), email: c.isGuest ? 'guest' : 'signed in', meta: 'dismissed' }));
+      document.getElementById('metricCtaTutorial').textContent = periodData.cta_tutorial.length;
+      document.getElementById('metricCtaCreate').textContent = periodData.cta_create.length;
+      document.getElementById('metricCtaDismiss').textContent = periodData.cta_dismiss.length;
   }
 
   function renderLoginsTable() {
@@ -467,7 +493,10 @@
     lists: '🛒 Lists Created',
     completed: '✅ Lists Completed',
     meals: '🍽️ Meals Planned',
-    trials: '👻 Guest Trials'
+    trials: '👻 Guest Trials',
+      cta_tutorial: '👀 See How It Works',
+      cta_create: '🛒 Create First List',
+      cta_dismiss: '✕ Dismissed'
   };
 
   window.openModal = function(type) {
