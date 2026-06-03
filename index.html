@@ -18,17 +18,11 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(160deg, #0f2330 0%, #1a3a4a 50%, #0a1f2b 100%);
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     color: white;
   }
 
-  /* Pin Screen */
-  .pin-screen {
-    text-align: center;
-    padding: 40px 24px;
-  }
+  .pin-screen { text-align: center; padding: 40px 24px; }
   .pin-screen .logo { font-size: 3em; margin-bottom: 16px; display: block; }
   .pin-screen h1 { font-size: 1.5em; margin-bottom: 8px; }
   .pin-screen p { color: rgba(255,255,255,0.5); font-size: 0.9em; margin-bottom: 32px; }
@@ -43,16 +37,14 @@
   .pin-error { color: #ef4444; font-size: 0.85em; margin-top: 8px; min-height: 20px; }
   .pin-btn {
     padding: 14px 40px; background: var(--teal); color: white;
-    border: none; border-radius: 10px; font-size: 1em; font-weight: 600;
-    cursor: pointer; margin-top: 8px;
+    border: none; border-radius: 10px; font-size: 1em; font-weight: 600; cursor: pointer;
   }
   .pin-btn:hover { background: var(--teal-dark); }
 
-  /* Dashboard */
   .dashboard {
     display: none; width: 100%; min-height: 100vh;
     background: #f4f6f9; color: #333;
-    align-items: flex-start; justify-content: flex-start; flex-direction: column;
+    align-items: flex-start; flex-direction: column;
   }
   .dashboard.visible { display: flex; }
 
@@ -65,66 +57,47 @@
   .dash-header h1 { font-size: 1.3em; font-weight: 700; }
   .dash-header span { font-size: 0.85em; color: rgba(255,255,255,0.5); }
 
-  .dash-body {
-    width: 100%; max-width: 900px;
-    margin: 0 auto; padding: 32px 24px;
-  }
+  .dash-body { width: 100%; max-width: 900px; margin: 0 auto; padding: 32px 24px; }
 
-  /* Date range filter */
   .date-range-bar {
     display: flex; align-items: center; gap: 12px;
     margin-bottom: 32px; flex-wrap: wrap;
-    background: white; border-radius: 14px;
-    padding: 16px 20px;
+    background: white; border-radius: 14px; padding: 16px 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   }
-  .date-range-bar label {
-    font-size: 0.8em; font-weight: 700; color: #999;
-    text-transform: uppercase; letter-spacing: 0.05em;
-  }
+  .date-range-bar label { font-size: 0.8em; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.05em; }
   .date-input {
     padding: 8px 12px; border: 2px solid #e0e0e0;
-    border-radius: 8px; font-size: 0.9em; color: #333;
-    background: #f9f9f9; cursor: pointer;
+    border-radius: 8px; font-size: 0.9em; color: #333; background: #f9f9f9; cursor: pointer;
   }
   .date-input:focus { outline: none; border-color: var(--teal); }
   .date-sep { color: #ccc; font-weight: 700; }
   .preset-btns { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap; }
   .preset-btn {
-    padding: 6px 14px; border: 2px solid #e0e0e0;
-    border-radius: 20px; background: white; color: #666;
-    font-size: 0.8em; font-weight: 600; cursor: pointer; transition: all 0.15s;
+    padding: 6px 14px; border: 2px solid #e0e0e0; border-radius: 20px;
+    background: white; color: #666; font-size: 0.8em; font-weight: 600; cursor: pointer; transition: all 0.15s;
   }
   .preset-btn:hover { border-color: var(--teal); color: var(--teal); }
   .preset-btn.active { background: var(--teal); border-color: var(--teal); color: white; }
 
-  /* Metric cards */
   .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 16px; margin-bottom: 32px;
   }
   .metric-card {
-    background: white; border-radius: 16px;
-    padding: 24px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    transition: transform 0.15s, box-shadow 0.15s;
+    background: white; border-radius: 16px; padding: 24px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
   }
-  .metric-card.clickable { cursor: pointer; }
-  .metric-card.clickable:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-  }
-  .metric-card.clickable .metric-label::after {
-    content: ' ↗'; color: var(--teal); font-size: 0.9em;
-  }
+  .metric-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
   .metric-label {
     font-size: 0.78em; color: #999; text-transform: uppercase;
     letter-spacing: 0.06em; margin-bottom: 10px; font-weight: 600;
   }
+  .metric-label::after { content: ' ↗'; color: var(--teal); font-size: 0.9em; }
   .metric-value { font-size: 2.8em; font-weight: 700; color: #1a3a4a; line-height: 1; }
   .metric-sub { font-size: 0.8em; color: #999; margin-top: 6px; }
 
-  /* Table */
   .section-title { font-size: 1em; font-weight: 700; color: #333; margin-bottom: 12px; }
   .data-table {
     width: 100%; background: white; border-radius: 16px;
@@ -136,9 +109,7 @@
     font-size: 0.78em; color: #999; text-transform: uppercase;
     letter-spacing: 0.05em; font-weight: 700; border-bottom: 1px solid #f0f0f0;
   }
-  .data-table td {
-    padding: 12px 16px; font-size: 0.9em; color: #333; border-bottom: 1px solid #f9f9f9;
-  }
+  .data-table td { padding: 12px 16px; font-size: 0.9em; color: #333; border-bottom: 1px solid #f9f9f9; }
   .data-table tr:last-child td { border-bottom: none; }
   .loading { text-align: center; padding: 40px; color: #999; font-size: 0.9em; }
 
@@ -149,7 +120,7 @@
   }
   .refresh-btn:hover { background: rgba(255,255,255,0.25); }
 
-  /* Modal overlay */
+  /* Modal */
   .modal-overlay {
     display: none; position: fixed; inset: 0;
     background: rgba(0,0,0,0.5); z-index: 1000;
@@ -158,42 +129,44 @@
   .modal-overlay.active { display: flex; }
   .modal-box {
     background: white; border-radius: 20px;
-    width: 100%; max-width: 520px; max-height: 80vh;
+    width: 100%; max-width: 560px; max-height: 80vh;
     overflow: hidden; display: flex; flex-direction: column;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   }
   .modal-header {
     padding: 20px 24px; border-bottom: 1px solid #f0f0f0;
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
   }
   .modal-header h2 { font-size: 1.1em; color: #1a3a4a; font-weight: 700; }
   .modal-close {
-    width: 32px; height: 32px; border-radius: 8px;
-    border: none; background: #f4f6f9; color: #666;
-    font-size: 1.1em; cursor: pointer; display: flex;
-    align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 8px; border: none;
+    background: #f4f6f9; color: #666; font-size: 1.1em; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
   }
   .modal-close:hover { background: #e0e0e0; }
-  .modal-body { padding: 20px 24px; overflow-y: auto; flex: 1; }
-  .trial-row {
+  .modal-body { padding: 8px 0; overflow-y: auto; flex: 1; }
+
+  /* Modal rows */
+  .detail-row {
     display: flex; align-items: center; gap: 12px;
-    padding: 10px 0; border-bottom: 1px solid #f5f5f5;
+    padding: 10px 24px; border-bottom: 1px solid #f5f5f5;
   }
-  .trial-row:last-child { border-bottom: none; }
-  .trial-num {
-    width: 28px; height: 28px; border-radius: 50%;
+  .detail-row:last-child { border-bottom: none; }
+  .detail-num {
+    width: 26px; height: 26px; border-radius: 50%;
     background: #f0fdf4; color: var(--teal);
-    font-size: 0.75em; font-weight: 700;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    font-size: 0.72em; font-weight: 700; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
   }
-  .trial-date { font-size: 0.9em; color: #333; font-weight: 600; }
-  .trial-time { font-size: 0.8em; color: #999; margin-left: auto; }
-  .empty-state { text-align: center; padding: 32px; color: #999; font-size: 0.9em; }
+  .detail-main { flex: 1; min-width: 0; }
+  .detail-name { font-size: 0.9em; font-weight: 600; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .detail-email { font-size: 0.78em; color: #999; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .detail-meta { font-size: 0.78em; color: #bbb; text-align: right; flex-shrink: 0; white-space: nowrap; }
+  .empty-state { text-align: center; padding: 40px; color: #999; font-size: 0.9em; }
 </style>
 </head>
 <body>
 
-<!-- Pin Screen -->
 <div class="pin-screen" id="pinScreen">
   <span class="logo">💸</span>
   <h1>IDK Admin</h1>
@@ -203,19 +176,16 @@
   <button class="pin-btn" onclick="checkPin()">Enter</button>
 </div>
 
-<!-- Dashboard -->
 <div class="dashboard" id="dashboard">
   <div class="dash-header">
     <h1>💸 IDK Dashboard</h1>
-    <div style="display:flex; align-items:center; gap:16px;">
+    <div style="display:flex;align-items:center;gap:16px;">
       <span id="lastUpdated"></span>
       <button class="refresh-btn" onclick="loadData()">↺ Refresh</button>
     </div>
   </div>
 
   <div class="dash-body">
-
-    <!-- Date Range Filter -->
     <div class="date-range-bar">
       <label>From</label>
       <input type="date" class="date-input" id="dateStart" onchange="onDateChange()">
@@ -223,46 +193,46 @@
       <label>To</label>
       <input type="date" class="date-input" id="dateEnd" onchange="onDateChange()">
       <div class="preset-btns">
-        <button class="preset-btn active" onclick="applyPreset('week', this)">Week</button>
-        <button class="preset-btn" onclick="applyPreset('month', this)">Month</button>
-        <button class="preset-btn" onclick="applyPreset('quarter', this)">Quarter</button>
-        <button class="preset-btn" onclick="applyPreset('year', this)">Year</button>
-        <button class="preset-btn" onclick="applyPreset('all', this)">All</button>
+        <button class="preset-btn active" onclick="applyPreset('week',this)">Week</button>
+        <button class="preset-btn" onclick="applyPreset('month',this)">Month</button>
+        <button class="preset-btn" onclick="applyPreset('quarter',this)">Quarter</button>
+        <button class="preset-btn" onclick="applyPreset('year',this)">Year</button>
+        <button class="preset-btn" onclick="applyPreset('all',this)">All</button>
       </div>
     </div>
 
     <div class="metrics-grid">
-      <div class="metric-card">
+      <div class="metric-card" onclick="openModal('users')">
         <div class="metric-label">Total Users</div>
         <div class="metric-value" id="metricUsers">—</div>
         <div class="metric-sub">unique accounts</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" onclick="openModal('newusers')">
         <div class="metric-label">New Users</div>
         <div class="metric-value" id="metricNewUsers">—</div>
         <div class="metric-sub">first login in period</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" onclick="openModal('logins')">
         <div class="metric-label">Total Logins</div>
         <div class="metric-value" id="metricLogins">—</div>
         <div class="metric-sub">sessions started</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" onclick="openModal('lists')">
         <div class="metric-label">Lists Created</div>
         <div class="metric-value" id="metricLists">—</div>
         <div class="metric-sub">shopping lists</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" onclick="openModal('completed')">
         <div class="metric-label">Lists Completed</div>
         <div class="metric-value" id="metricCompleted">—</div>
         <div class="metric-sub">shopping trips done</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" onclick="openModal('meals')">
         <div class="metric-label">Meals Planned</div>
         <div class="metric-value" id="metricMeals">—</div>
         <div class="metric-sub">meal plan entries</div>
       </div>
-      <div class="metric-card clickable" onclick="openTrialsModal()">
+      <div class="metric-card" onclick="openModal('trials')">
         <div class="metric-label">Guest Trials</div>
         <div class="metric-value" id="metricTrials">—</div>
         <div class="metric-sub">try as guest sessions</div>
@@ -273,29 +243,21 @@
     <div class="data-table">
       <div class="loading" id="tableLoading">Loading...</div>
       <table id="loginsTable" style="display:none;">
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Email</th>
-            <th>Time</th>
-          </tr>
-        </thead>
+        <thead><tr><th>User</th><th>Email</th><th>Time</th></tr></thead>
         <tbody id="loginsBody"></tbody>
       </table>
     </div>
   </div>
 </div>
 
-<!-- Guest Trials Modal -->
-<div class="modal-overlay" id="trialsModal" onclick="if(event.target===this) closeTrialsModal()">
+<!-- Detail Modal -->
+<div class="modal-overlay" id="detailModal" onclick="if(event.target===this) closeModal()">
   <div class="modal-box">
     <div class="modal-header">
-      <h2>👻 Guest Trial Sessions</h2>
-      <button class="modal-close" onclick="closeTrialsModal()">✕</button>
+      <h2 id="modalTitle">Detail</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
-    <div class="modal-body" id="trialsModalBody">
-      <div class="empty-state">No trial data.</div>
-    </div>
+    <div class="modal-body" id="modalBody"></div>
   </div>
 </div>
 
@@ -303,9 +265,7 @@
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
   import { getFirestore, collection, getDocs, query, orderBy } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
-  // ── CHANGE PIN HERE ──
   const ADMIN_PIN = '6977';
-  // ────────────────────
 
   const firebaseConfig = {
     apiKey: "AIzaSyDtBO48uBogqcdv69VO9IH7MIG8Kb1YG10",
@@ -320,12 +280,8 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  let allLogins = [];
-  let allLists = [];
-  let allMeals = [];
-  let allTrials = [];
-  let currentStart = null;
-  let currentEnd = null;
+  let allLogins = [], allLists = [], allMeals = [], allTrials = [];
+  let currentStart = null, currentEnd = null;
 
   // ── PIN ──
   window.checkPin = function() {
@@ -341,90 +297,59 @@
     }
   };
 
-  // ── DATE RANGE ──
-  function formatDateInput(d) {
-    return d.toISOString().split('T')[0];
-  }
+  // ── DATES ──
+  function fmt(d) { return d.toISOString().split('T')[0]; }
 
   window.applyPreset = function(preset, btn) {
     document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
-
     const now = new Date();
     let start;
-    switch (preset) {
-      case 'week': {
-        start = new Date(now);
-        start.setDate(now.getDate() - now.getDay());
-        start.setHours(0,0,0,0);
-        break;
-      }
-      case 'month':
-        start = new Date(now.getFullYear(), now.getMonth(), 1);
-        break;
-      case 'quarter': {
-        const q = Math.floor(now.getMonth() / 3);
-        start = new Date(now.getFullYear(), q * 3, 1);
-        break;
-      }
-      case 'year':
-        start = new Date(now.getFullYear(), 0, 1);
-        break;
-      case 'all':
-        start = new Date(0);
-        break;
+    switch(preset) {
+      case 'week': start = new Date(now); start.setDate(now.getDate()-now.getDay()); start.setHours(0,0,0,0); break;
+      case 'month': start = new Date(now.getFullYear(), now.getMonth(), 1); break;
+      case 'quarter': start = new Date(now.getFullYear(), Math.floor(now.getMonth()/3)*3, 1); break;
+      case 'year': start = new Date(now.getFullYear(), 0, 1); break;
+      case 'all': start = new Date(0); break;
     }
-
-    const end = new Date(now);
-    end.setHours(23,59,59,999);
-
-    document.getElementById('dateStart').value = preset === 'all' ? '' : formatDateInput(start);
-    document.getElementById('dateEnd').value = formatDateInput(end);
-
-    currentStart = start;
-    currentEnd = end;
+    const end = new Date(now); end.setHours(23,59,59,999);
+    document.getElementById('dateStart').value = preset === 'all' ? '' : fmt(start);
+    document.getElementById('dateEnd').value = fmt(end);
+    currentStart = start; currentEnd = end;
     renderMetrics();
   };
 
   window.onDateChange = function() {
-    // Clear preset active state when user manually picks dates
     document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
-
     const s = document.getElementById('dateStart').value;
     const e = document.getElementById('dateEnd').value;
-    currentStart = s ? new Date(s + 'T00:00:00') : null;
-    currentEnd = e ? new Date(e + 'T23:59:59') : null;
+    currentStart = s ? new Date(s+'T00:00:00') : null;
+    currentEnd = e ? new Date(e+'T23:59:59') : null;
     renderMetrics();
   };
 
-  // ── LOAD DATA ──
+  // ── LOAD ──
   window.loadData = async function() {
     document.getElementById('tableLoading').style.display = 'block';
     document.getElementById('loginsTable').style.display = 'none';
-
     try {
-      const loginSnap = await getDocs(query(collection(db, 'loginEvents'), orderBy('timestamp', 'desc')));
-      allLogins = [];
-      loginSnap.forEach(d => allLogins.push({ id: d.id, ...d.data() }));
+      const loginSnap = await getDocs(query(collection(db,'loginEvents'), orderBy('timestamp','desc')));
+      allLogins = []; loginSnap.forEach(d => allLogins.push({id:d.id,...d.data()}));
 
-      const listsSnap = await getDocs(collection(db, 'groceryLists'));
-      allLists = [];
-      listsSnap.forEach(d => allLists.push({ id: d.id, ...d.data() }));
+      const listsSnap = await getDocs(collection(db,'groceryLists'));
+      allLists = []; listsSnap.forEach(d => allLists.push({id:d.id,...d.data()}));
 
-      const mealsSnap = await getDocs(collection(db, 'mealPlans'));
-      allMeals = [];
-      mealsSnap.forEach(d => allMeals.push({ id: d.id, ...d.data() }));
+      const mealsSnap = await getDocs(collection(db,'mealPlans'));
+      allMeals = []; mealsSnap.forEach(d => allMeals.push({id:d.id,...d.data()}));
 
-      const trialsSnap = await getDocs(query(collection(db, 'trialEvents'), orderBy('timestamp', 'desc')));
-      allTrials = [];
-      trialsSnap.forEach(d => allTrials.push({ id: d.id, ...d.data() }));
+      const trialsSnap = await getDocs(query(collection(db,'trialEvents'), orderBy('timestamp','desc')));
+      allTrials = []; trialsSnap.forEach(d => allTrials.push({id:d.id,...d.data()}));
 
       document.getElementById('lastUpdated').textContent = 'Updated ' + new Date().toLocaleTimeString();
       renderMetrics();
       renderLoginsTable();
-
-    } catch (e) {
-      document.getElementById('tableLoading').textContent = 'Failed to load data. Check Firestore rules.';
+    } catch(e) {
+      document.getElementById('tableLoading').textContent = 'Failed to load. Check Firestore rules.';
       console.error(e);
     }
   };
@@ -442,27 +367,71 @@
     return true;
   }
 
+  function fmtDateTime(d) {
+    if (!d) return '—';
+    return d.toLocaleDateString([], {month:'short', day:'numeric', year:'numeric'}) + ' ' +
+           d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  }
+
+  // ── METRICS ──
+  // Expose filtered data for modal use
+  let periodData = {};
+
   function renderMetrics() {
     const periodLogins = allLogins.filter(l => inRange(toDate(l.timestamp)));
     const periodUserIds = new Set(periodLogins.map(l => l.userId));
 
+    // Build user lookup from logins: userId -> {displayName, email, lastLogin}
+    const userMap = {};
+    periodLogins.forEach(l => {
+      const d = toDate(l.timestamp);
+      if (!userMap[l.userId] || d > userMap[l.userId].lastLogin) {
+        userMap[l.userId] = { name: l.displayName || 'Unknown', email: l.email || '—', lastLogin: d };
+      }
+    });
+
+    // New users
     const firstLoginByUser = {};
     allLogins.forEach(l => {
       const d = toDate(l.timestamp);
       if (!d) return;
-      if (!firstLoginByUser[l.userId] || d < firstLoginByUser[l.userId]) {
-        firstLoginByUser[l.userId] = d;
+      if (!firstLoginByUser[l.userId] || d < firstLoginByUser[l.userId].date) {
+        firstLoginByUser[l.userId] = { date: d, name: l.displayName || 'Unknown', email: l.email || '—' };
       }
     });
-    const newUsers = Object.values(firstLoginByUser).filter(d => inRange(d)).length;
+    const newUserEntries = Object.values(firstLoginByUser).filter(u => inRange(u.date));
 
     const periodLists = allLists.filter(l => inRange(toDate(l.createdAt)));
-    const completedLists = periodLists.filter(l => l.completed);
+    const completedLists = allLists.filter(l => l.completed && inRange(toDate(l.date || l.createdAt)));
     const periodMeals = allMeals.filter(m => inRange(toDate(m.createdAt)));
     const periodTrials = allTrials.filter(t => inRange(toDate(t.timestamp)));
 
+    // Build list user lookup
+    const listUserIds = [...new Set(periodLists.map(l => l.userId))];
+    const completedUserIds = [...new Set(completedLists.map(l => l.userId))];
+    const mealUserIds = [...new Set(periodMeals.map(m => m.userId))];
+
+    // Helper to resolve user info from login records
+    function resolveUser(uid) {
+      const login = allLogins.find(l => l.userId === uid);
+      return { name: login?.displayName || 'Unknown', email: login?.email || '—' };
+    }
+
+    periodData = {
+      users: Object.entries(userMap).map(([uid, u]) => ({ name: u.name, email: u.email, meta: fmtDateTime(u.lastLogin) })),
+      newusers: newUserEntries.map(u => ({ name: u.name, email: u.email, meta: fmtDateTime(u.date) })),
+      logins: periodLogins.map(l => ({ name: l.displayName || 'Unknown', email: l.email || '—', meta: fmtDateTime(toDate(l.timestamp)) })),
+      lists: listUserIds.map(uid => { const u = resolveUser(uid); return { name: u.name, email: u.email, meta: periodLists.filter(l=>l.userId===uid).length + ' list(s)' }; }),
+      completed: completedUserIds.map(uid => { const u = resolveUser(uid); return { name: u.name, email: u.email, meta: completedLists.filter(l=>l.userId===uid).length + ' trip(s)' }; }),
+      meals: mealUserIds.map(uid => { const u = resolveUser(uid); return { name: u.name, email: u.email, meta: periodMeals.filter(m=>m.userId===uid).length + ' meal(s)' }; }),
+      trials: periodTrials.map((t, i) => {
+        const d = toDate(t.timestamp);
+        return { name: d ? d.toLocaleDateString([], {weekday:'short', month:'short', day:'numeric', year:'numeric'}) : '—', email: '', meta: d ? d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}) : '' };
+      })
+    };
+
     document.getElementById('metricUsers').textContent = periodUserIds.size;
-    document.getElementById('metricNewUsers').textContent = newUsers;
+    document.getElementById('metricNewUsers').textContent = newUserEntries.length;
     document.getElementById('metricLogins').textContent = periodLogins.length;
     document.getElementById('metricLists').textContent = periodLists.length;
     document.getElementById('metricCompleted').textContent = completedLists.length;
@@ -473,53 +442,60 @@
   function renderLoginsTable() {
     const tbody = document.getElementById('loginsBody');
     const recent = allLogins.slice(0, 25);
-
     if (recent.length === 0) {
       document.getElementById('tableLoading').textContent = 'No login events yet.';
       return;
     }
-
     tbody.innerHTML = recent.map(l => {
       const d = toDate(l.timestamp);
-      const timeStr = d ? d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '—';
+      const ts = d ? d.toLocaleDateString()+' '+d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}) : '—';
       return `<tr>
-        <td>${l.displayName || 'Unknown'}</td>
-        <td style="color:#999; font-size:0.85em;">${l.email || '—'}</td>
-        <td style="color:#999; font-size:0.85em;">${timeStr}</td>
+        <td>${l.displayName||'Unknown'}</td>
+        <td style="color:#999;font-size:.85em">${l.email||'—'}</td>
+        <td style="color:#999;font-size:.85em">${ts}</td>
       </tr>`;
     }).join('');
-
     document.getElementById('tableLoading').style.display = 'none';
     document.getElementById('loginsTable').style.display = 'table';
   }
 
-  // ── TRIALS MODAL ──
-  window.openTrialsModal = function() {
-    const periodTrials = allTrials.filter(t => inRange(toDate(t.timestamp)));
-    const body = document.getElementById('trialsModalBody');
-
-    if (periodTrials.length === 0) {
-      body.innerHTML = '<div class="empty-state">No guest trials in this date range.</div>';
-    } else {
-      body.innerHTML = periodTrials.map((t, i) => {
-        const d = toDate(t.timestamp);
-        const dateStr = d ? d.toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }) : '—';
-        const timeStr = d ? d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) : '';
-        return `<div class="trial-row">
-          <div class="trial-num">${i + 1}</div>
-          <div>
-            <div class="trial-date">${dateStr}</div>
-          </div>
-          <div class="trial-time">${timeStr}</div>
-        </div>`;
-      }).join('');
-    }
-
-    document.getElementById('trialsModal').classList.add('active');
+  // ── MODAL ──
+  const modalTitles = {
+    users: '👤 Total Users',
+    newusers: '✨ New Users',
+    logins: '🔑 Total Logins',
+    lists: '🛒 Lists Created',
+    completed: '✅ Lists Completed',
+    meals: '🍽️ Meals Planned',
+    trials: '👻 Guest Trials'
   };
 
-  window.closeTrialsModal = function() {
-    document.getElementById('trialsModal').classList.remove('active');
+  window.openModal = function(type) {
+    const rows = periodData[type] || [];
+    const isTrials = type === 'trials';
+
+    document.getElementById('modalTitle').textContent = modalTitles[type] || type;
+
+    if (rows.length === 0) {
+      document.getElementById('modalBody').innerHTML = '<div class="empty-state">No data in this date range.</div>';
+    } else {
+      document.getElementById('modalBody').innerHTML = rows.map((r, i) => `
+        <div class="detail-row">
+          <div class="detail-num">${i+1}</div>
+          <div class="detail-main">
+            <div class="detail-name">${r.name}</div>
+            ${r.email ? `<div class="detail-email">${r.email}</div>` : ''}
+          </div>
+          <div class="detail-meta">${r.meta || ''}</div>
+        </div>
+      `).join('');
+    }
+
+    document.getElementById('detailModal').classList.add('active');
+  };
+
+  window.closeModal = function() {
+    document.getElementById('detailModal').classList.remove('active');
   };
 </script>
 </body>
